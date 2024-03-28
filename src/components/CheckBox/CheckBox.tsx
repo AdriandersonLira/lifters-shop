@@ -3,9 +3,10 @@ import styles from "./CheckBox.module.css";
 interface CheckBoxProps {
   id: number;
   label: string;
+  checked: boolean;
 }
 
-export function CheckBox({ id, label }: CheckBoxProps) {
+export function CheckBox({ id, label, checked = false }: CheckBoxProps) {
   return (
     <div className={styles.checkbox}>
       <input
@@ -13,6 +14,7 @@ export function CheckBox({ id, label }: CheckBoxProps) {
         type="checkbox"
         id={`${id}`}
         name={`${label}`}
+        checked={checked}
       />
       <label htmlFor={`${id}`}>{label}</label>
     </div>

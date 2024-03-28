@@ -96,11 +96,12 @@
     align-items: center;
     gap: 1rem;
 
-    a:first-child {
+    button:first-child {
       background-color: var(--background-header);
       color: var(--white) !important;
       width: 17.18rem;
       height: 3.125rem;
+      border: none;
 
       display: flex;
       justify-content: center;

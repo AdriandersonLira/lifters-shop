@@ -43,7 +43,14 @@ export function SideBar({ data }: SidebarProps) {
         <p>Categories</p>
 
         {categories.map((category, index) => {
-          return <CheckBox key={index} id={index} label={category} />;
+          return (
+            <CheckBox
+              key={index}
+              id={index}
+              label={category}
+              checked={category === "Jackets" && true}
+            />
+          );
         })}
       </div>
 
