@@ -1,9 +1,13 @@
 .bagPreview {
   max-height: 20rem;
-  overflow-y: scroll;
   width: 15.5rem;
 
   background-color: var(--background-header);
+}
+
+.items {
+  overflow-y: scroll;
+  max-height: 12.2rem;
 }
 
 .item {
@@ -71,6 +75,7 @@
   display: flex;
   justify-content: space-between;
   color: var(--gray100);
+  padding-right: 0.2rem;
 
   span:first-child {
     font-weight: 500;
@@ -86,8 +91,9 @@
 }
 
 .buttonCheckout {
-  width: 100%;
+  width: 98%;
   height: 3rem;
+
   background-color: var(--gray300);
   border: none;
   color: var(--background-header);

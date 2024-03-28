@@ -1,0 +1,146 @@
+.bodyCheckout {
+  max-width: 71.625rem;
+
+  margin: 0 auto;
+  padding-top: 3rem;
+}
+
+.headerCheckout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.7rem;
+
+    i {
+      font-size: 2.9rem;
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 600;
+      line-height: 2.75rem;
+    }
+  }
+
+  .back {
+    color: var(--black) !important;
+    background-color: var(--gray300);
+
+    width: 7.56rem;
+    height: 3rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+  }
+}
+
+.items {
+  width: 44.43rem;
+
+  margin-top: 1.5rem;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--gray100);
+  margin-bottom: 1rem;
+  width: auto;
+
+  img {
+    width: 8.125rem;
+    height: 8.125rem;
+    margin-right: 0.5rem;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .price {
+      font-size: 1rem;
+      line-height: 1.25rem;
+      font-weight: 700;
+    }
+
+    .infoContent {
+      display: flex;
+      gap: 0.7rem;
+    }
+  }
+
+  .options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .sizeColor {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .size {
+      font-size: 0.6rem;
+      line-height: 1.25rem;
+      font-weight: 400;
+      color: var(--gray100);
+      padding: 0rem 0.2rem;
+      border: 1px solid var(--gray100);
+    }
+
+    .remove {
+      background-color: var(--background-header);
+
+      color: var(--gray100);
+      padding: 0.2rem;
+      border: none;
+    }
+  }
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  color: var(--gray100);
+
+  span:first-child {
+    font-weight: 500;
+    font-size: 1.3rem;
+    line-height: 1.25rem;
+  }
+
+  .priceTotal {
+    font-weight: 700;
+    font-size: 1.3rem;
+    line-height: 1.25rem;
+  }
+}
+
+.buttonCheckout {
+  width: 100%;
+  height: 3rem;
+  background-color: var(--gray300);
+  border: none;
+  color: var(--background-header);
+  margin-top: 1.5rem;
+}
+
+.bagEmpty {
+  text-align: center;
+  margin-top: 0.3rem;
+
+  color: var(--white);
+}
