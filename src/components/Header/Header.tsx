@@ -1,4 +1,5 @@
 import styles from "./Header.module.css";
+import { OverlayTrigger, Popover } from "react-bootstrap";
 
 export function Header() {
   return (
@@ -19,9 +20,23 @@ export function Header() {
       </nav>
 
       <nav className={styles.navLogin}>
-        <a href="#">
-          <i className="bi bi-bag"></i>
-        </a>
+        {
+          <OverlayTrigger
+            trigger="click"
+            placement="bottom"
+            overlay={
+              <Popover className={styles.popover}>
+                <Popover.Body>Vamos fazer o provider</Popover.Body>
+              </Popover>
+            }
+          >
+            <div style={{ cursor: "pointer" }}>
+              <i className="bi bi-bag"></i>
+              <span className="badge">3</span>
+            </div>
+          </OverlayTrigger>
+        }
+        <a href="#"></a>
         <a href="#">Login</a>
       </nav>
     </div>

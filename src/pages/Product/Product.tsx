@@ -3,7 +3,6 @@ import { ColorCircle } from "../../components/ColorCircle/ColorCircle";
 import { Header } from "../../components/Header/Header";
 import { IData } from "../../types/IData";
 import styles from "./Product.module.css";
-import { useEffect } from "react";
 
 interface Imagem {
   url: string;
@@ -19,7 +18,7 @@ export function Product() {
     return <div style={{ textAlign: "center" }}>Produto não encontrado!</div>;
   }
 
-  const organizarCapaPrimeira = (pictures: Imagem[]): Imagem[] => {
+  const organizeCoverFirst = (pictures: Imagem[]): Imagem[] => {
     const firstPicture = pictures.find((picture) => picture.capa);
 
     if (firstPicture) {
@@ -34,13 +33,15 @@ export function Product() {
     return pictures;
   };
 
+  const handleAddToBag = () => {};
+
   return (
     <div className={styles.product}>
       <Header />
 
       <div className={styles.container}>
         <div className={styles.pictures}>
-          {organizarCapaPrimeira(product.fotos).map((picture) => (
+          {organizeCoverFirst(product.fotos).map((picture) => (
             <img
               className={styles.picture}
               src={picture.url}
@@ -78,9 +79,9 @@ export function Product() {
           </div>
 
           <div className={styles.actions}>
-            <a href="#">
+            <button onClick={() => handleAddToBag()}>
               <i className="bi bi-bag"></i> Add to bag
-            </a>
+            </button>
             <a onClick={() => navigate("/")}>Back</a>
           </div>
         </div>
