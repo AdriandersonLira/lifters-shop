@@ -1,5 +1,6 @@
 import { IData } from "../../types/IData";
 import styles from "./Products.module.css";
+import { Link } from "react-router-dom";
 
 interface ProductsProps {
   data: IData[];
@@ -12,7 +13,10 @@ export function Products({ data }: ProductsProps) {
       <div className={styles.wrapper}>
         {data.map((product) => (
           <div className={styles.product} key={product.titulo}>
-            <a href="#">
+            <Link
+              to={`/product/${product.titulo}`}
+              state={{ product: product }}
+            >
               <img
                 src={
                   product.fotos.filter(
@@ -25,7 +29,7 @@ export function Products({ data }: ProductsProps) {
                 <p>{product.titulo}</p>
                 <span>{product.valor}</span>
               </div>
-            </a>
+            </Link>
           </div>
         ))}
       </div>
