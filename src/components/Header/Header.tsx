@@ -3,7 +3,9 @@ import styles from "./Header.module.css";
 export function Header() {
   return (
     <div className={styles.header}>
-      <p className={styles.logo}>Lifters Shop</p>
+      <a href="/" className={styles.logo}>
+        Lifters Shop
+      </a>
 
       <nav className={styles.navMenu}>
         <ul className={styles.navList}>
