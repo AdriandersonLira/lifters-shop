@@ -22,7 +22,7 @@ export function Home() {
       <Banner />
       <div className={styles.container}>
         <aside>
-          <SideBar />
+          <SideBar data={products} />
         </aside>
         <main>
           <Products data={products} />

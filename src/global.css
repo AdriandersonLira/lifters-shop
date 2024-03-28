@@ -4,7 +4,8 @@
   --background: #eff2f6;
 
   --gray: #707070;
-  --gray100: #979797;
+  --gray200: #979797;
+  --gray100: #c4c4c4;
 
   --white: #fff;
 
@@ -38,7 +39,7 @@ body,
 input,
 textarea,
 button {
-  font-family: "Public Sans", sans-serif;
+  font-family: "Public Sans", sans-serif !important;
   font-weight: 400;
   font-size: 1rem;
 }

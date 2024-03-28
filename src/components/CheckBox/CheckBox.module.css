@@ -1,0 +1,19 @@
+.checkbox {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 0.7rem;
+
+  label {
+    font-weight: 400;
+  }
+}
+
+.input {
+  background-color: var(--background);
+  border: 1px solid var(--background-header);
+
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-right: 1.1rem;
+}
