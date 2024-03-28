@@ -3,15 +3,36 @@ import { ColorCircle } from "../../components/ColorCircle/ColorCircle";
 import { Header } from "../../components/Header/Header";
 import { IData } from "../../types/IData";
 import styles from "./Product.module.css";
+import { useEffect } from "react";
+
+interface Imagem {
+  url: string;
+  capa: boolean;
+}
 
 export function Product() {
   const { state } = useLocation();
   const product = state.product as IData;
+  const navigate = useNavigate();
 
   if (!product) {
     return <div style={{ textAlign: "center" }}>Produto não encontrado!</div>;
   }
-  const navigate = useNavigate();
+
+  const organizarCapaPrimeira = (pictures: Imagem[]): Imagem[] => {
+    const firstPicture = pictures.find((picture) => picture.capa);
+
+    if (firstPicture) {
+      const index = pictures.indexOf(firstPicture);
+
+      if (index !== -1) {
+        pictures.splice(index, 1);
+        pictures.unshift(firstPicture);
+      }
+    }
+
+    return pictures;
+  };
 
   return (
     <div className={styles.product}>
@@ -19,35 +40,47 @@ export function Product() {
 
       <div className={styles.container}>
         <div className={styles.pictures}>
-          {product.fotos.map((picture) => (
-            <img src={picture.url} alt={product.titulo} />
+          {organizarCapaPrimeira(product.fotos).map((picture) => (
+            <img
+              className={styles.picture}
+              src={picture.url}
+              alt={product.titulo}
+            />
           ))}
         </div>
         <div className={styles.details}>
-          <h1>{product.titulo}</h1>
-          <p>{product.valor}</p>
-          <p>{product.descricao}</p>
+          <div className={styles.info}>
+            <p className={styles.title}>{product.titulo}</p>
+            <p className={styles.price}>{product.valor}</p>
+            <p className={styles.description}>{product.descricao}</p>
 
-          <div className={styles.colors}>
-            <p>Colors</p>
-            <div className={styles.colorsContainer}>
-              {product.cores.map((color) => (
-                <ColorCircle color={color.nome} size="25px" />
-              ))}
+            <div className={styles.colors}>
+              <p className={styles.colorsTitle}>Color</p>
+              <div className={styles.colorsContainer}>
+                {product.cores.map((color) => (
+                  <a href="">
+                    <ColorCircle color={color.codigo} size="50px" />
+                  </a>
+                ))}
+              </div>
             </div>
-          </div>
 
-          <div className={styles.size}>
-            <p>Size</p>
-            <div className={styles.sizeContainer}>
-              {product.tamanhos.map((size) => (
-                <p>{size}</p>
-              ))}
+            <div className={styles.size}>
+              <p className={styles.sizeTitle}>Size</p>
+              <div className={styles.sizeContainer}>
+                {product.tamanhos.map((size) => (
+                  <a href="">
+                    <p>{size}</p>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 
           <div className={styles.actions}>
-            <a href="#">Add to cart</a>
+            <a href="#">
+              <i className="bi bi-bag"></i> Add to bag
+            </a>
             <a onClick={() => navigate("/")}>Back</a>
           </div>
         </div>
