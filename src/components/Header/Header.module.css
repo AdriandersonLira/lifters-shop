@@ -1,7 +1,62 @@
 .header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 5rem;
-  background-color: #000;
+  height: 3.75rem;
+  background-color: var(--background-header);
+  color: var(--white);
+
+  font-family: "Inter" sans-serif;
+
+  border-bottom: 1px solid var(--gray);
+}
+
+.logo {
+  padding-left: 6.6875rem;
+
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.navList {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 2rem;
+
+  font-weight: 400;
+
+  font-size: 1.0625rem;
+
+  list-style-type: none;
+
+  li {
+    margin-left: 2rem;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      width: 5.0625rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      span {
+        color: var(--gray100);
+      }
+    }
+  }
+}
+
+.navLogin {
+  margin-left: auto;
+  margin-right: 6.6875rem;
+
+  width: 6.3043rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }

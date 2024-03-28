@@ -3,6 +3,9 @@
   --background-header: #0d0d0d;
   --background: #eff2f6;
 
+  --gray: #707070;
+  --gray100: #979797;
+
   --white: #fff;
 
   --orange: #df9167;
@@ -38,4 +41,22 @@ button {
   font-family: "Public Sans", sans-serif;
   font-weight: 400;
   font-size: 1rem;
+}
+
+a {
+  text-decoration: none !important;
+  color: var(--white) !important;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dl,
+ol,
+ul {
+  margin-bottom: 0 !important;
 }
