@@ -60,3 +60,8 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.popover {
+  background-color: var(--background-header) !important;
+  scrollbar-color: var(--gray) var(--background-header) !important;
+}

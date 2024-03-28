@@ -22,7 +22,7 @@ export function Product() {
     return <NotFound />;
   }
 
-  const { items, setItems } = useBagContext();
+  const { items, setItems, setShow } = useBagContext();
 
   const organizeCoverFirst = (pictures: Image[]): Image[] => {
     const firstPicture = pictures.find((picture) => picture.capa);
@@ -84,7 +84,12 @@ export function Product() {
           </div>
 
           <div className={styles.actions}>
-            <button onClick={() => setItems([product, ...items])}>
+            <button
+              onClick={() => {
+                setItems([product, ...items]);
+                setShow(true);
+              }}
+            >
               <i className="bi bi-bag"></i> Add to bag
             </button>
             <a onClick={() => navigate("/")}>Back</a>

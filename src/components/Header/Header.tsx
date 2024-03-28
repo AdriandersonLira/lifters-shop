@@ -1,8 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./Header.module.css";
 import { OverlayTrigger, Popover } from "react-bootstrap";
+import { BagPreview } from "../BagPreview/BagPreview";
+import { useBagContext } from "../../providers/Bag.provider";
 
 export function Header() {
+  const { items, show, setShow } = useBagContext();
   const navigate = useNavigate();
 
   return (
@@ -27,15 +30,18 @@ export function Header() {
           <OverlayTrigger
             trigger="click"
             placement="bottom"
+            show={show}
             overlay={
               <Popover className={styles.popover}>
-                <Popover.Body>Vamos fazer o provider</Popover.Body>
+                <Popover.Body className={styles.popoverBody}>
+                  <BagPreview />
+                </Popover.Body>
               </Popover>
             }
           >
-            <div style={{ cursor: "pointer" }}>
+            <div style={{ cursor: "pointer" }} onClick={() => setShow(!show)}>
               <i className="bi bi-bag"></i>
-              <span className="badge">3</span>
+              <span className="badge">{items.length}</span>
             </div>
           </OverlayTrigger>
         }
