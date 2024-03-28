@@ -1,10 +1,14 @@
 import { useLocation, useNavigate } from "react-router";
+import { useBagContext } from "../../providers/Bag.provider";
+
 import { ColorCircle } from "../../components/ColorCircle/ColorCircle";
 import { Header } from "../../components/Header/Header";
 import { IData } from "../../types/IData";
-import styles from "./Product.module.css";
 
-interface Imagem {
+import styles from "./Product.module.css";
+import { NotFound } from "../../components/NotFound/NotFound";
+
+interface Image {
   url: string;
   capa: boolean;
 }
@@ -15,10 +19,12 @@ export function Product() {
   const navigate = useNavigate();
 
   if (!product) {
-    return <div style={{ textAlign: "center" }}>Produto não encontrado!</div>;
+    return <NotFound />;
   }
 
-  const organizeCoverFirst = (pictures: Imagem[]): Imagem[] => {
+  const { items, setItems } = useBagContext();
+
+  const organizeCoverFirst = (pictures: Image[]): Image[] => {
     const firstPicture = pictures.find((picture) => picture.capa);
 
     if (firstPicture) {
@@ -33,8 +39,6 @@ export function Product() {
     return pictures;
   };
 
-  const handleAddToBag = () => {};
-
   return (
     <div className={styles.product}>
       <Header />
@@ -43,6 +47,7 @@ export function Product() {
         <div className={styles.pictures}>
           {organizeCoverFirst(product.fotos).map((picture) => (
             <img
+              key={picture.url}
               className={styles.picture}
               src={picture.url}
               alt={product.titulo}
@@ -59,7 +64,7 @@ export function Product() {
               <p className={styles.colorsTitle}>Color</p>
               <div className={styles.colorsContainer}>
                 {product.cores.map((color) => (
-                  <a href="">
+                  <a href="" key={color.codigo}>
                     <ColorCircle color={color.codigo} size="50px" />
                   </a>
                 ))}
@@ -70,7 +75,7 @@ export function Product() {
               <p className={styles.sizeTitle}>Size</p>
               <div className={styles.sizeContainer}>
                 {product.tamanhos.map((size) => (
-                  <a href="">
+                  <a href="" key={size}>
                     <p>{size}</p>
                   </a>
                 ))}
@@ -79,7 +84,7 @@ export function Product() {
           </div>
 
           <div className={styles.actions}>
-            <button onClick={() => handleAddToBag()}>
+            <button onClick={() => setItems([product, ...items])}>
               <i className="bi bi-bag"></i> Add to bag
             </button>
             <a onClick={() => navigate("/")}>Back</a>

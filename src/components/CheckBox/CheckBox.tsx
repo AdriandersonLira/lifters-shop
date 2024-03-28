@@ -14,7 +14,7 @@ export function CheckBox({ id, label, checked = false }: CheckBoxProps) {
         type="checkbox"
         id={`${id}`}
         name={`${label}`}
-        checked={checked}
+        defaultChecked={checked}
       />
       <label htmlFor={`${id}`}>{label}</label>
     </div>

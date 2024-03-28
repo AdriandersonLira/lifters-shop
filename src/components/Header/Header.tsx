@@ -1,10 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import styles from "./Header.module.css";
 import { OverlayTrigger, Popover } from "react-bootstrap";
 
 export function Header() {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.header}>
-      <a href="/" className={styles.logo}>
+      <a onClick={() => navigate("/")} className={styles.logo}>
         Lifters Shop
       </a>
 
