@@ -43,10 +43,42 @@
   }
 }
 
-.items {
-  width: 44.43rem;
+.contentCheckout {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
 
-  margin-top: 1.5rem;
+  .formCheckout {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 44.43rem;
+    height: 29rem;
+
+    width: 100%;
+
+    background-color: var(--background-header);
+    padding: 1.5rem;
+
+    .total {
+      display: flex;
+      flex-direction: column;
+
+      aside {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+.items {
+  overflow-y: scroll;
+  max-height: 20rem;
+  width: 44.43rem;
 }
 
 .item {
@@ -67,10 +99,28 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: baseline;
+    margin: 0 auto;
+    width: 70%;
+    height: 7rem;
+    color: var(--background-header);
+
+    .infoContent {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .title {
+      font-size: 1.56rem;
+      line-height: 1.62rem;
+      font-weight: 400;
+    }
 
     .price {
-      font-size: 1rem;
-      line-height: 1.25rem;
+      font-size: 1.56rem;
+      line-height: 1.62rem;
       font-weight: 700;
     }
 
@@ -81,6 +131,7 @@
   }
 
   .options {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -93,18 +144,20 @@
     }
 
     .size {
-      font-size: 0.6rem;
+      font-size: 0.9rem;
       line-height: 1.25rem;
       font-weight: 400;
       color: var(--gray100);
-      padding: 0rem 0.2rem;
+      padding: 0.8rem 0.85rem;
       border: 1px solid var(--gray100);
     }
 
     .remove {
-      background-color: var(--background-header);
+      background-color: transparent;
 
-      color: var(--gray100);
+      font-size: x-large;
+
+      color: var(--background-header);
       padding: 0.2rem;
       border: none;
     }
@@ -142,5 +195,34 @@
   text-align: center;
   margin-top: 0.3rem;
 
-  color: var(--white);
+  color: var(--background-header);
+}
+
+.empty {
+  overflow-y: hidden;
+}
+
+.security {
+  margin-top: 2rem;
+
+  .securityTitle {
+    font-size: 1.3rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+
+    display: flex;
+    align-items: center;
+
+    i {
+      font-size: larger;
+      margin-right: 0.5rem;
+    }
+
+    p {
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 2.75rem;
+    }
+  }
 }
